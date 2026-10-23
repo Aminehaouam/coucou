@@ -2,22 +2,7 @@ import Buildings from './Buildings';
 import Coco from './Coco';
 import Postbox from './Postbox';
 import Taxi from './Taxi';
-import './LondonScene.css';
-
-const CLOUD = '#F3F5F4';
-
-function Cloud({ x, y, scale = 1, className }) {
-  return (
-    <g className={`cloud ${className}`}>
-      <g transform={`translate(${x} ${y}) scale(${scale})`} fill={CLOUD}>
-        <rect x="0" y="14" width="96" height="16" rx="8" />
-        <circle cx="30" cy="14" r="14" />
-        <circle cx="54" cy="9" r="17" />
-        <circle cx="74" cy="17" r="10" />
-      </g>
-    </g>
-  );
-}
+import { Cloud, Railing, SceneFrame } from './parts';
 
 function Lamppost({ x }) {
   return (
@@ -31,40 +16,13 @@ function Lamppost({ x }) {
   );
 }
 
-function Railing() {
-  const balusters = Array.from({ length: 21 }, (_, i) => 6 + i * 20);
-  return (
-    <g>
-      <rect x="-20" y="428" width="430" height="30" fill="#BDB29A" />
-      {balusters.map((bx) => (
-        <g key={bx}>
-          <rect x={bx} y="428" width="9" height="15" rx="3" fill="#E4DAC6" />
-          <rect x={bx + 6} y="428" width="3" height="15" rx="1.5" fill="#CFC4AE" />
-        </g>
-      ))}
-      <rect x="-20" y="443" width="430" height="20" fill="#D9CFBA" />
-      <rect x="-20" y="443" width="430" height="3" fill="#C6BAA3" />
-      <rect x="-20" y="408" width="430" height="10" fill="#F1E8D8" />
-      <rect x="-20" y="418" width="430" height="10" fill="#D9CFBA" />
-      <rect x="-20" y="418" width="430" height="2" fill="#000" opacity="0.06" />
-    </g>
-  );
-}
-
 /**
  * The London street. Purely illustrative, so it is exposed as one image
  * with a description rather than as individual elements.
  */
 export default function LondonScene({ cocoPose = 'perched' }) {
   return (
-    <div className="scene">
-      <svg
-        className="scene__svg"
-        viewBox="0 0 390 450"
-        preserveAspectRatio="xMidYMax slice"
-        role="img"
-        aria-label="A London street of brick Georgian houses with a black taxi and a red postbox. Coco, a small grey parrot with a red tail, perches on a stone railing in the foreground."
-      >
+    <SceneFrame label="A London street of brick Georgian houses with a black taxi and a red postbox. Coco, a small grey parrot with a red tail, perches on a stone railing in the foreground.">
         <rect x="-200" y="-300" width="790" height="620" fill="#DDE4E7" />
         <Cloud x={46} y={46} scale={1} className="cloud--a" />
         <Cloud x={238} y={28} scale={0.8} className="cloud--b" />
@@ -90,7 +48,6 @@ export default function LondonScene({ cocoPose = 'perched' }) {
 
         <Railing />
         <Coco x={282} y={414} scale={1.25} pose={cocoPose} />
-      </svg>
-    </div>
+    </SceneFrame>
   );
 }

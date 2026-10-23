@@ -1,16 +1,16 @@
 import AudioPhrase from './AudioPhrase';
 
-export default function IntroStep({ onStart, headingRef }) {
+export default function IntroStep({ screen, onStart, headingRef }) {
   return (
     <>
-      <p className="lesson__label">Exploring London</p>
+      <p className="lesson__label">{screen.label}</p>
       <h1 className="lesson__heading" id="lesson-heading" ref={headingRef} tabIndex={-1}>
-        Where would you like to go?
+        {screen.heading}
       </h1>
-      <p className="lesson__text">Ask the driver to take you to your hotel.</p>
-      <AudioPhrase phrase="Could you take me to this address, please?" />
+      <p className="lesson__text">{screen.text}</p>
+      <AudioPhrase key={screen.id} phrase={screen.phrase} />
       <button type="button" className="primary-button" onClick={onStart}>
-        Let's go
+        {screen.button}
       </button>
     </>
   );

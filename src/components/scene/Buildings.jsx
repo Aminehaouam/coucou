@@ -2,7 +2,7 @@ export const GROUND = 305;
 
 const GLASS = '#2E3D55';
 
-function SashWindow({ x, y, w, h, trim, lintel = true }) {
+export function SashWindow({ x, y, w, h, trim, lintel = true }) {
   return (
     <g>
       {lintel && <rect x={x - 2} y={y - 4} width={w + 4} height="3" fill={trim} />}
