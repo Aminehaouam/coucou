@@ -1,8 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import IntroStep from './components/lesson/IntroStep';
 import ChoiceStep from './components/lesson/ChoiceStep';
+import ImageScene from './components/scene/ImageScene';
 import { SCREENS } from './screens';
 import './App.css';
+
+// Generated art (scripts/nano-banana.mjs) replaces the hand-drawn SVG scene when present.
+const ART = import.meta.glob('./assets/scenes/*.png', { eager: true, query: '?url', import: 'default' });
+const artFor = (id) => ART[`./assets/scenes/${id}.png`];
 
 const indexFromHash = () => {
   const id = window.location.hash.replace(/^#\/?/, '');
@@ -50,7 +55,11 @@ export default function App() {
 
   return (
     <main className="screen">
-      <Scene cocoPose={screen.cocoPose[step]} />
+      {artFor(screen.id) ? (
+        <ImageScene src={artFor(screen.id)} label={`${screen.label}: ${screen.heading}`} />
+      ) : (
+        <Scene cocoPose={screen.cocoPose[step]} />
+      )}
       <section className="lesson" aria-labelledby="lesson-heading">
         <div className="lesson__content" key={`${screen.id}-${step}`}>
           {step === 'intro' ? (
