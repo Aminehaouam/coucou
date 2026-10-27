@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 86" width="104" height="86">
+  <title>Wrought-iron railing module (tileable every 104 units)</title>
+  <g fill="#202d40">
+    <rect x="0" y="22" width="104" height="4.5"/><rect x="0" y="52" width="104" height="3.5"/>
+    <g id="post"><rect x="11" y="12" width="3.4" height="74"/><path d="M8.5 12 L12.7 0 L16.9 12 Z" fill="#141c2a"/><rect x="9" y="12" width="7.4" height="3" rx="1" fill="#141c2a"/></g>
+    <use href="#post" x="26"/><use href="#post" x="52"/><use href="#post" x="78"/>
+  </g>
+  <rect x="0" y="83" width="104" height="3" fill="#000" opacity=".15"/>
+</svg>

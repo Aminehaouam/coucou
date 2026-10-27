@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 200" width="340" height="200">
+  <title>London double-decker bus (side view, facing left)</title>
+  <defs>
+    <linearGradient id="red" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cf6558"/><stop offset=".5" stop-color="#b94e43"/><stop offset="1" stop-color="#8f3b33"/></linearGradient>
+    <linearGradient id="win" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a4d69"/><stop offset="1" stop-color="#1e2b42"/></linearGradient>
+    <clipPath id="clip"><path id="shape" d="M14 168 L14 46 C14 24 28 12 50 12 L296 12 C318 12 328 24 328 46 L328 168 Z"/></clipPath>
+  </defs>
+  <ellipse cx="172" cy="184" rx="160" ry="8" fill="#0d1320" opacity=".25"/>
+  <use href="#shape" fill="url(#red)"/>
+  <g clip-path="url(#clip)">
+    <rect x="0" y="86" width="340" height="5" fill="#f1e8d8"/>
+    <rect x="0" y="140" width="340" height="30" fill="#000" opacity=".16"/>
+    <path d="M20 16 H320" stroke="#fff" stroke-width="3" opacity=".25" stroke-linecap="round"/>
+    <rect x="86" y="96" width="196" height="34" rx="3" fill="#f1e8d8" opacity=".92"/><rect x="94" y="104" width="86" height="8" rx="2" fill="#202d40"/><rect x="94" y="116" width="52" height="6" rx="2" fill="#3678d4"/>
+  </g>
+  <!-- upper deck -->
+  <g fill="url(#win)" stroke="#2a1512" stroke-width="3" stroke-linejoin="round">
+    <path d="M24 70 V40 C24 33 29 28 36 28 H64 V70 Z"/>
+    <rect x="72" y="28" width="46" height="42" rx="4"/><rect x="126" y="28" width="46" height="42" rx="4"/><rect x="180" y="28" width="46" height="42" rx="4"/><rect x="234" y="28" width="46" height="42" rx="4"/>
+    <path d="M288 28 H306 C315 28 320 34 320 42 V70 H288 Z"/>
+  </g>
+  <!-- lower deck -->
+  <g fill="url(#win)" stroke="#2a1512" stroke-width="3" stroke-linejoin="round">
+    <path d="M24 164 V102 C24 98 27 96 31 96 H64 V164 Z" fill="#26364f"/>
+    <rect x="124" y="100" width="40" height="26" rx="4"/><rect x="172" y="100" width="40" height="26" rx="4"/><rect x="220" y="100" width="40" height="26" rx="4"/><rect x="268" y="100" width="40" height="26" rx="4"/>
+  </g>
+  <g fill="#f1e8d8" opacity=".14"><path d="M76 66 L96 66 L112 30 L92 30 Z"/><path d="M130 66 L150 66 L166 30 L146 30 Z"/><path d="M184 66 L204 66 L220 30 L200 30 Z"/></g>
+  <!-- destination blind -->
+  <rect x="30" y="76" width="30" height="9" rx="2" fill="#0d1016"/><rect x="34" y="78.5" width="22" height="4" rx="1" fill="#f6d99a"/>
+  <!-- wheel arches + wheels -->
+  <g fill="#0b0d12"><path d="M64 170 A27 27 0 0 1 118 170 Z"/><path d="M236 170 A27 27 0 0 1 290 170 Z"/></g>
+  <g><circle cx="91" cy="170" r="21" fill="#0d1017"/><circle cx="91" cy="170" r="12" fill="#aab1b7"/><circle cx="91" cy="170" r="4" fill="#5a626a"/>
+     <circle cx="263" cy="170" r="21" fill="#0d1017"/><circle cx="263" cy="170" r="12" fill="#aab1b7"/><circle cx="263" cy="170" r="4" fill="#5a626a"/></g>
+  <rect x="8" y="154" width="12" height="14" rx="4" fill="#202d40"/><circle cx="18" cy="148" r="5" fill="#f6d99a"/>
+</svg>

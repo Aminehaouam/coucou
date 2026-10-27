@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coco · silhouette alternatives</title>
+    <style>
+      body{margin:0;padding:32px 20px;background:#faf9f6;color:#202d40;font:15px/1.4 Inter,system-ui,sans-serif}
+      h1{font-size:20px;margin:0 0 4px} p{margin:0 0 24px;color:#5b636a}
+      .row{display:flex;gap:20px;flex-wrap:wrap}
+      .card{flex:1 1 280px;background:#fff;border:1px solid #e2e0da;border-radius:20px;padding:16px}
+      .card h2{font-size:15px;margin:0 0 8px}
+      .big{height:300px;display:grid;place-items:center;background:#f1e8d8;border-radius:12px}
+      .big img{height:260px}
+      .small{display:flex;align-items:end;gap:28px;height:110px;margin-top:12px;padding:0 16px;background:linear-gradient(#cfc5b2,#d9cfbd);border-radius:12px;position:relative;overflow:hidden}
+      .small img{height:46px;margin-bottom:34px}
+      .rail{position:absolute;left:0;right:0;bottom:30px;height:4px;background:#202d40}
+      .sil img{filter:brightness(0)}
+      .sil{height:80px;display:grid;place-items:center;margin-top:12px}
+      .sil img{height:70px}
+    </style>
+  </head>
+  <body>
+    <h1>Coco — three silhouettes</h1>
+    <p>Same palette and proportions budget; no face features on any of them. Large, in-scene size (≈46px), and pure silhouette.</p>
+    <div class="row" id="row"></div>
+    <script type="module" src="/src/illustrations/london-taxi/coco-lab.js"></script>
+  </body>
+</html>

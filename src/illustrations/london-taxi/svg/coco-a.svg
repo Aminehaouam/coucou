@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 160" width="100" height="160">
+  <title>Coco A — upright perch</title>
+  <defs>
+    <linearGradient id="bodyA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5a626c"/><stop offset="1" stop-color="#3a4048"/></linearGradient>
+    <linearGradient id="wingA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#aab1b8"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+  </defs>
+  <!-- tail: short, red, tapering -->
+  <path d="M57 114 L71 114 C75 126 78 138 79 149 L70 155 L61 148 C59 137 58 126 57 114 Z" fill="#c0473b"/>
+  <!-- body + head in one contour: round crown, nape flowing into the back -->
+  <path d="M33 25 C37 13 55 9 66 17 C76 24 79 36 78 48 C77 60 80 70 79 84 C78 100 73 114 66 126 L47 127 C34 120 24 104 25 89 C26 77 33 71 32 61 C31 52 22 48 22 38 C22 32 27 28 33 25 Z" fill="url(#bodyA)"/>
+  <!-- beak: short, hooked, sits into the face line -->
+  <path d="M28 30 C21 29 17 33 18 40 C18.5 44 21 46.5 23.5 46.5 C22.5 43 24.5 41 27.5 40.5 C30 40 32 39 32.5 36.5 Z" fill="#1b1e24"/>
+  <!-- wing: hugs the back, tip sweeps over the tail root -->
+  <path d="M47 57 C60 55 72 65 74 84 C75 100 73 116 71 133 C59 126 48 109 45 93 C43 79 43 65 47 57 Z" fill="url(#wingA)"/>
+  <path d="M52 66 C61 69 67 78 69 92" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round" opacity=".3"/>
+  <!-- feet gripping the perch -->
+  <path d="M49 127 L49 133 M60 127 L60 133" stroke="#2b2f36" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+  <path d="M45 134 L53 134 M56 134 L64 134" stroke="#2b2f36" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+</svg>

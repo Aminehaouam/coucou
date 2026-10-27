@@ -50,7 +50,7 @@ export default function Preview() {
           </div>
           <p
             className="absolute w-max max-w-[55%] rounded-2xl bg-white px-3 py-2 text-sm font-medium text-[var(--navy)] shadow"
-            style={{ left: `${Math.min(Math.max(anchor.x, 30), 95)}%`, top: `${Math.max(anchor.y, 22)}%`, transform: `translate(${anchor.x > 66 ? '-92%' : '-50%'}, -100%)` }}
+            style={{ left: `${Math.min(Math.max(anchor.x, 30), 95)}%`, top: `${Math.max(anchor.y, 22)}%`, transform: `translate(${anchor.x > 66 ? '-92%' : '-50%'}, calc(-100% - 14px))` }}
           >
             <span className="sr-only">Coco the parrot says: </span>{step.coco}
           </p>

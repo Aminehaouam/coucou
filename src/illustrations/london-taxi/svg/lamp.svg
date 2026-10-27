@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 340" width="120" height="340">
+  <title>Cast-iron street lamp</title>
+  <defs>
+    <linearGradient id="iron" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2d3c54"/><stop offset=".5" stop-color="#202d40"/><stop offset="1" stop-color="#141c2a"/></linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6d8"/><stop offset="1" stop-color="#f3d38a"/></linearGradient>
+    <radialGradient id="halo"><stop offset="0" stop-color="#ffe9a8" stop-opacity=".5"/><stop offset="1" stop-color="#ffe9a8" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse cx="66" cy="334" rx="26" ry="5" fill="#0d1320" opacity=".2"/>
+  <!-- base and shaft -->
+  <path d="M46 332 C50 324 52 312 54 296 L78 296 C80 312 82 324 86 332 Z" fill="url(#iron)"/>
+  <rect x="50" y="288" width="32" height="8" rx="2" fill="url(#iron)"/><rect x="53" y="280" width="26" height="8" rx="2" fill="url(#iron)"/>
+  <rect x="59" y="60" width="14" height="222" fill="url(#iron)"/>
+  <rect x="55" y="200" width="22" height="6" rx="2" fill="url(#iron)"/><rect x="55" y="120" width="22" height="5" rx="2" fill="url(#iron)"/>
+  <path d="M73 128 H84 M73 134 H84" stroke="#202d40" stroke-width="3" stroke-linecap="round"/>
+  <!-- scrolled bracket -->
+  <path d="M66 66 C66 50 48 46 38 52" fill="none" stroke="#202d40" stroke-width="5" stroke-linecap="round"/>
+  <path d="M66 82 C54 80 50 72 54 64" fill="none" stroke="#202d40" stroke-width="3" stroke-linecap="round"/>
+  <!-- lantern -->
+  <circle cx="30" cy="30" r="34" fill="url(#halo)"/>
+  <path d="M16 52 L44 52 L40 18 L20 18 Z" fill="url(#glow)" stroke="#202d40" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M30 18 V52 M23 18 L20 52 M37 18 L40 52" stroke="#202d40" stroke-width="1.6" opacity=".7"/>
+  <path d="M14 18 H46 L30 4 Z" fill="#141c2a"/><circle cx="30" cy="3" r="3" fill="#141c2a"/>
+  <rect x="14" y="52" width="32" height="5" rx="2" fill="#141c2a"/>
+</svg>
