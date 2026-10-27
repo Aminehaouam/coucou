@@ -172,11 +172,13 @@ export async function createScene({ coco = 'a' } = {}) {
   L.coco.addChild(cocoS);
 
   // responsive framing: cover the container, keep FOCUS_X in view and the road at the bottom
-  const layout = (w, h) => {
-    const s = Math.max(w / W, h / H);
+  // `inset` is the part of the canvas covered by whatever overlaps its bottom edge (e.g. a sheet).
+  const layout = (w, h, inset = 0) => {
+    const vh = h - inset;
+    const s = Math.max(w / W, vh / H);
     world.scale.set(s);
     world.x = Math.min(0, Math.max(w - W * s, w / 2 - FOCUS_X * s));
-    world.y = h - H * s;
+    world.y = vh - H * s;
     const p = cocoS.getGlobalPosition();
     return { x: (p.x / w) * 100, y: ((p.y - 52 * s) / h) * 100 };
   };

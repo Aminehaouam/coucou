@@ -6,10 +6,13 @@ import { createScene } from './scene';
  * Self-contained PixiJS illustration of the London taxi situation.
  * `onAnchor` receives Coco's position as percentages of the container, for placing a speech bubble.
  */
-export default function TaxiScene({ coco = 'a', onAnchor, className = 'absolute inset-0', label = 'Illustration: a black London taxi on a brick-lined street' }) {
+export default function TaxiScene({ coco = 'a', bottomInset = 0, onAnchor, className = 'absolute inset-0', label = 'Illustration: a black London taxi on a brick-lined street' }) {
   const host = useRef(null);
   const cb = useRef(onAnchor);
+  const insetRef = useRef(bottomInset);
+  const refit = useRef(null);
   useEffect(() => { cb.current = onAnchor; });
+  useEffect(() => { insetRef.current = bottomInset; refit.current?.(); }, [bottomInset]);
 
   useEffect(() => {
     const el = host.current;
@@ -30,10 +33,11 @@ export default function TaxiScene({ coco = 'a', onAnchor, className = 'absolute 
       const fit = () => {
         const { width, height } = a.screen;
         if (!width || !height) return;
-        const anchor = scene.layout(width, height);
+        const anchor = scene.layout(width, height, insetRef.current);
         cb.current?.(anchor);
       };
       a.renderer.on('resize', fit);
+      refit.current = fit;
       fit();
 
       const mq = window.matchMedia('(prefers-reduced-motion: reduce)');

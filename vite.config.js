@@ -6,6 +6,6 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
-    rollupOptions: { input: { main: 'index.html', preview: 'preview.html', taxi: 'taxi.html', cocoLab: 'coco-lab.html' } },
+    rollupOptions: { input: { main: 'index.html', preview: 'preview.html', taxi: 'taxi.html', cocoLab: 'coco-lab.html', lesson: 'lesson.html' } },
   },
 })
