@@ -29,6 +29,8 @@ export default function Person({
   );
 
   return (
+    <>
+    <ellipse cx="0" cy="0" rx="13" ry="2.8" fill="#000" opacity="0.13" transform={`translate(${x} ${y}) scale(${scale})`} />
     <g className={className} transform={`translate(${x} ${y}) scale(${flip ? -scale : scale} ${scale})`} aria-hidden="true">
       {hairStyle === 'long' && <rect x="-9" y="-77" width="18" height="26" rx="8" fill={hair} />}
       {skirt ? (
@@ -47,8 +49,11 @@ export default function Person({
       <rect x="0.5" y="-3" width="8.5" height="3" rx="1.5" fill="#161C27" />
 
       {arm(-1, armL)}
-      <rect x="-11.5" y="-60" width="23" height="29" rx="7" fill={top} />
-      {apron && <rect x="-9" y="-44" width="18" height="24" rx="3" fill={apron} />}
+      <path d="M-11.5 -56Q-11 -61 -5 -61H5Q11 -61 11.5 -56L10.5 -31H-10.5Z" fill={top} />
+      <path d="M2 -60H5Q11 -60 11.5 -56L10.5 -31H4Z" fill="#000" opacity="0.1" />
+      <path d="M-3.5 -61L0 -52L3.5 -61Z" fill="#fff" opacity="0.5" />
+      <rect x="-10.5" y="-33" width="21" height="3.5" fill="#000" opacity="0.18" />
+      {apron && <path d="M-8 -46H8L9 -20H-9Z" fill={apron} />}
       {arm(1, armR)}
 
       <rect x="-3" y="-64" width="6" height="7" fill={skin} />
@@ -60,5 +65,6 @@ export default function Person({
       {hairStyle === 'cap' && <path d="M-9 -71Q0 -82 9 -71L12 -69.5H-9Z" fill={hair} />}
       {holding === 'passport' && <rect x="-14" y="-38" width="6" height="8" rx="1" fill="#B94E43" />}
     </g>
+    </>
   );
 }
