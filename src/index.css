@@ -45,10 +45,13 @@ body {
   background: var(--ivory);
 }
 
-button {
-  font: inherit;
-  color: inherit;
-  -webkit-tap-highlight-color: transparent;
+/* In the base layer so Tailwind colour and font utilities on buttons can override it. */
+@layer base {
+  button {
+    font: inherit;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 :focus-visible {
