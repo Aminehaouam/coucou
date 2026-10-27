@@ -1,21 +1,13 @@
 import { useState } from 'react';
-import Dust from './Dust.jsx';
-import airport from '../assets/scenes/airport.png';
-import taxi from '../assets/scenes/taxi.svg';
-import cafe from '../assets/scenes/cafe.png';
-import hotel from '../assets/scenes/hotel.png';
-import landmark from '../assets/scenes/landmark.png';
-import street from '../assets/scenes/street.png';
-import cocoNeutral from '../assets/coco/neutral.png';
-import cocoCurious from '../assets/coco/curious.png';
+import Stage from './three/Stage.jsx';
 
 const STEPS = [
-  { img: airport, alt: 'Airport arrivals hall', who: 'Border officer', coco: 'New country, new adventures!', q: 'What is the purpose of your visit?', options: ['Tourism', 'Business', 'Visiting family or friends', 'Study'] },
-  { img: taxi, alt: 'A black London taxi', who: 'Taxi driver', coco: 'London already looks amazing!', q: 'Where would you like to go?', options: ['The city centre', 'Your hotel', 'Tower Bridge', 'Something else'] },
-  { img: cafe, alt: 'A cosy café counter', who: 'Barista', coco: 'Smells great in here!', q: 'Could I have a cup of tea, please?', options: ['Yes, of course.', 'I’d like a coffee instead.', 'Sorry, we don’t have tea.', 'Just a glass of water.'] },
-  { img: hotel, alt: 'Hotel reception desk', who: 'Receptionist', coco: 'You got this!', q: 'I have a reservation under my name.', options: ['Yes, that’s me.', 'No, I don’t have a reservation.', 'Could you repeat that, please?'] },
-  { img: landmark, alt: 'The Tower of London', who: 'Ticket officer', coco: 'History is so cool!', q: 'Could you tell me where to buy a ticket?', options: ['At the entrance', 'In the gift shop', 'Online', 'I’m not sure'] },
-  { img: street, alt: 'A London street by the Underground', who: 'Passer-by', coco: 'Almost there!', q: 'Excuse me, how do I get to the nearest station?', options: [] },
+  { alt: 'Airport arrivals hall', who: 'Border officer', coco: 'New country, new adventures!', q: 'What is the purpose of your visit?', options: ['Tourism', 'Business', 'Visiting family or friends', 'Study'] },
+  { alt: 'A black London taxi', who: 'Taxi driver', coco: 'London already looks amazing!', q: 'Where would you like to go?', options: ['The city centre', 'Your hotel', 'Tower Bridge', 'Something else'] },
+  { alt: 'A cosy café counter', who: 'Barista', coco: 'Smells great in here!', q: 'Could I have a cup of tea, please?', options: ['Yes, of course.', 'I’d like a coffee instead.', 'Sorry, we don’t have tea.', 'Just a glass of water.'] },
+  { alt: 'Hotel reception desk', who: 'Receptionist', coco: 'You got this!', q: 'I have a reservation under my name.', options: ['Yes, that’s me.', 'No, I don’t have a reservation.', 'Could you repeat that, please?'] },
+  { alt: 'The Tower of London', who: 'Ticket officer', coco: 'History is so cool!', q: 'Could you tell me where to buy a ticket?', options: ['At the entrance', 'In the gift shop', 'Online', 'I’m not sure'] },
+  { alt: 'A London street by the Underground', who: 'Passer-by', coco: 'Almost there!', q: 'Excuse me, how do I get to the nearest station?', options: [] },
 ];
 
 const Icon = ({ d, className = 'size-5' }) => (
@@ -35,6 +27,7 @@ const ICONS = {
 export default function Preview() {
   const [i, setI] = useState(0);
   const [picked, setPicked] = useState(null);
+  const [anchor, setAnchor] = useState({ x: 50, y: 70 });
   const step = STEPS[i];
   const go = (n) => { setI((n + STEPS.length) % STEPS.length); setPicked(null); };
 
@@ -43,8 +36,7 @@ export default function Preview() {
       <div className="relative flex h-[min(860px,calc(100svh-2rem))] w-full max-w-[400px] flex-col overflow-hidden rounded-[2.5rem] border border-base-300 bg-[var(--ivory)] shadow-2xl">
         {/* Scene */}
         <section className="relative min-h-0 flex-[1.05]" aria-label={step.alt}>
-          <img key={step.img} src={step.img} alt={step.alt} className="size-full object-cover object-center animate-[fade_.4s_ease-out]" />
-          <Dust />
+          <Stage index={i} onAnchor={setAnchor} />
           <div className="absolute inset-x-0 top-0 flex items-center gap-3 p-3 pt-4">
             <button type="button" className="btn btn-circle btn-sm min-h-11 min-w-11 border-0 bg-white/85 shadow" aria-label="Back" onClick={() => go(i - 1)}>
               <Icon d={ICONS.back} />
@@ -55,12 +47,12 @@ export default function Preview() {
               <Icon d={ICONS.close} />
             </button>
           </div>
-          <div className="absolute bottom-10 right-4 flex max-w-[70%] items-end gap-2">
-            <div className="chat chat-end">
-              <div className="chat-bubble bg-white text-sm font-medium text-[var(--navy)] shadow">{step.coco}</div>
-            </div>
-            <img src={i % 2 ? cocoCurious : cocoNeutral} alt="Coco the parrot" className="size-14 shrink-0 object-contain drop-shadow" />
-          </div>
+          <p
+            className="absolute w-max max-w-[55%] rounded-2xl bg-white px-3 py-2 text-sm font-medium text-[var(--navy)] shadow"
+            style={{ left: `${Math.min(Math.max(anchor.x, 30), 70)}%`, top: `${Math.max(anchor.y, 22)}%`, transform: 'translate(-50%, -100%)' }}
+          >
+            <span className="sr-only">Coco the parrot says: </span>{step.coco}
+          </p>
         </section>
 
         {/* Sheet */}
