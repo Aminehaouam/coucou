@@ -17,10 +17,10 @@ export default function ImageScene({ src, label, pose = 'neutral', cocoX = 296 }
   const cx = cocoX;
   return (
     <SceneFrame label={label}>
-      <image href={src} x="0" y="0" width="390" height="450" preserveAspectRatio="xMidYMax slice" />
+      <image className="scene__art" href={src} x="0" y="0" width="390" height="450" preserveAspectRatio="xMidYMax slice" />
       <Railing />
       <g aria-hidden="true" transform={`translate(${cx} 0) scale(-1 1) translate(${-cx} 0)`}>
-        <g className="coco--animated">
+        <g className="coco--animated coco--land">
           <image className="coco__upper" href={href} x={cx - w / 2} y={416 - h} width={w} height={h} />
         </g>
       </g>

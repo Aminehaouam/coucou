@@ -57,6 +57,7 @@ export default function App() {
     <main className="screen">
       {artFor(screen.id) ? (
         <ImageScene
+          key={screen.id}
           src={artFor(screen.id)}
           label={`${screen.label}: ${screen.heading}`}
           pose={screen.id === 'airport' && step === 'intro' ? 'suitcase' : screen.cocoPose[step] === 'curious' ? 'curious' : 'neutral'}
