@@ -1,0 +1,26 @@
+// Brand tokens (src/index.css) plus the tints derived from them for this illustration.
+export const P = {
+  ivory: '#FAF9F6',
+  blue: '#3678D4',
+  navy: '#202D40',
+  sage: '#A9B9A1',
+  brick: '#B94E43',
+  slate: '#737B82',
+  cream: '#F1E8D8',
+
+  navyDeep: '#141C2A',
+  charcoal: '#1C2029',
+  brickMuted: '#B4695A',
+  brickDeep: '#9C5246',
+  stone: '#DCD0B8',
+  sageDeep: '#82987C',
+  sageDark: '#5F7660',
+  roofSlate: '#58616C',
+  terracotta: '#C0714F',
+  glass: '#8FA8BD',
+  glassLight: '#C3D3DC',
+  warm: '#F6D99A',
+  warmDeep: '#E8B96A',
+  road: '#59626B',
+  pavement: '#D9CFBD',
+};

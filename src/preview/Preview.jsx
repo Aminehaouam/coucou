@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Stage from './three/Stage.jsx';
+import TaxiScene from '../illustrations/london-taxi/TaxiScene.jsx';
 
 const STEPS = [
   { alt: 'Airport arrivals hall', who: 'Border officer', coco: 'New country, new adventures!', q: 'What is the purpose of your visit?', options: ['Tourism', 'Business', 'Visiting family or friends', 'Study'] },
@@ -36,7 +37,7 @@ export default function Preview() {
       <div className="relative flex h-[min(860px,calc(100svh-2rem))] w-full max-w-[400px] flex-col overflow-hidden rounded-[2.5rem] border border-base-300 bg-[var(--ivory)] shadow-2xl">
         {/* Scene */}
         <section className="relative min-h-0 flex-[1.05]" aria-label={step.alt}>
-          <Stage index={i} onAnchor={setAnchor} />
+          {i === 1 ? <TaxiScene onAnchor={setAnchor} /> : <Stage index={i} onAnchor={setAnchor} />}
           <div className="absolute inset-x-0 top-0 flex items-center gap-3 p-3 pt-4">
             <button type="button" className="btn btn-circle btn-sm min-h-11 min-w-11 border-0 bg-white/85 shadow" aria-label="Back" onClick={() => go(i - 1)}>
               <Icon d={ICONS.back} />
@@ -49,7 +50,7 @@ export default function Preview() {
           </div>
           <p
             className="absolute w-max max-w-[55%] rounded-2xl bg-white px-3 py-2 text-sm font-medium text-[var(--navy)] shadow"
-            style={{ left: `${Math.min(Math.max(anchor.x, 30), 70)}%`, top: `${Math.max(anchor.y, 22)}%`, transform: 'translate(-50%, -100%)' }}
+            style={{ left: `${Math.min(Math.max(anchor.x, 30), 95)}%`, top: `${Math.max(anchor.y, 22)}%`, transform: `translate(${anchor.x > 66 ? '-92%' : '-50%'}, -100%)` }}
           >
             <span className="sr-only">Coco the parrot says: </span>{step.coco}
           </p>
