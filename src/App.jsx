@@ -6,8 +6,8 @@ import { SCREENS } from './screens';
 import './App.css';
 
 // Generated art (scripts/nano-banana.mjs) replaces the hand-drawn SVG scene when present.
-const ART = import.meta.glob('./assets/scenes/*.png', { eager: true, query: '?url', import: 'default' });
-const artFor = (id) => ART[`./assets/scenes/${id}.png`];
+const ART = import.meta.glob('./assets/scenes/*.{png,svg}', { eager: true, query: '?url', import: 'default' });
+const artFor = (id) => ART[`./assets/scenes/${id}.png`] ?? ART[`./assets/scenes/${id}.svg`];
 
 const indexFromHash = () => {
   const id = window.location.hash.replace(/^#\/?/, '');

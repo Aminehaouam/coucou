@@ -38,8 +38,8 @@
 }
 
 @keyframes art-drift {
-  from { transform: scale(1) translateX(-5px); }
-  to { transform: scale(1.06) translateX(5px); }
+  from { transform: scale(1.05) translateX(-4px); }
+  to { transform: scale(1.1) translateX(4px); }
 }
 
 @keyframes coco-land {
