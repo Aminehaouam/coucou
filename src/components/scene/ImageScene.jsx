@@ -1,28 +1,29 @@
 import { Railing, SceneFrame } from './parts';
-import cocoNeutral from '../../assets/coco/neutral.png';
-import cocoCurious from '../../assets/coco/curious.png';
-import cocoSuitcase from '../../assets/coco/suitcase.png';
+import AnimatedParrot from '../parrot/AnimatedParrot';
+import { PARROT_ASPECT } from '../parrot/parrotMarkup';
 import './Coco.css';
 
-// Cut-outs from the asset sheet: [image, width, height] in scene units, feet at the bottom.
-const COCO = {
-  neutral: [cocoNeutral, 59, 100],
-  curious: [cocoCurious, 75, 100],
-  suitcase: [cocoSuitcase, 90, 96],
-};
+const COCO_HEIGHT = 100; // scene units, feet on the railing at y = 416
+const COCO_WIDTH = COCO_HEIGHT * PARROT_ASPECT;
 
 /** A painted scene filling the top area, with a stone railing and Coco standing on it. */
 export default function ImageScene({ src, label, pose = 'neutral', cocoX = 296 }) {
-  const [href, w, h] = COCO[pose] ?? COCO.neutral;
-  const cx = cocoX;
+  // The old cut-out poses collapse to two moods: the suitcase pose was a prop, so it reads as curious.
+  const mood = pose === 'neutral' ? 'neutral' : 'curious';
   return (
     <SceneFrame label={label}>
       <image className="scene__art" href={src} x="0" y="0" width="390" height="450" preserveAspectRatio="xMidYMax slice" />
       <Railing />
-      <g aria-hidden="true" transform={`translate(${cx} 0) scale(-1 1) translate(${-cx} 0)`}>
-        <g className="coco--animated coco--land">
-          <image className="coco__upper" href={href} x={cx - w / 2} y={416 - h} width={w} height={h} />
-        </g>
+      <g transform={`translate(${cocoX} 0) scale(-1 1) translate(${-cocoX} 0)`}>
+        <AnimatedParrot
+          enter
+          mood={mood}
+          title="Coco the parrot. Tap to hear him chirp."
+          x={cocoX - COCO_WIDTH / 2}
+          y={416 - COCO_HEIGHT}
+          width={COCO_WIDTH}
+          height={COCO_HEIGHT}
+        />
       </g>
     </SceneFrame>
   );
